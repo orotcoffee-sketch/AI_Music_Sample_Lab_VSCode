@@ -82,7 +82,7 @@ nav a.active {
 footer {
   border-top: 1px solid var(--line);
   padding: 24px var(--gutter);
-  color: #666;
+  color: var(--muted-dim);
   font-size: .72rem;
   letter-spacing: .08em;
 }

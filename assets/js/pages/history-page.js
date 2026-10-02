@@ -46,7 +46,7 @@
     meta.className = "sample-meta";
     const known = Config.GENRES.find((genre) => genre.id === item.genre);
     const genreName =
-      item.genreName || (known && known.name) || String(item.genre || "UNKNOWN").toUpperCase();
+      (known && known.name) || item.genreName || String(item.genre || "UNKNOWN").toUpperCase();
     meta.textContent = `${genreName} / ${item.subgenre || "-"} / ${String(item.type || "-").toUpperCase()} / ${Config.SAMPLE_DURATION} SEC`;
     heading.append(id, meta);
 

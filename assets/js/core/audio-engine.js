@@ -16,6 +16,7 @@
 
   let audioContext = null;
   let activeSource = null;
+  let playRequestId = 0; // resume() 대기 중인 이전 PLAY 요청을 무효화하는 번호
 
   /* ---------- 생성 ---------- */
 
@@ -72,6 +73,7 @@
   /* ---------- 재생 ---------- */
 
   function stop() {
+    playRequestId++;
     if (!activeSource) return;
     activeSource.onended = null;
     try {
@@ -86,16 +88,20 @@
   // 항상 하나만 재생한다. 새로 재생하면 이전 소리는 멈춘다.
   async function play(buffer) {
     stop();
+    const requestId = playRequestId;
     const AudioContextConstructor = global.AudioContext || global.webkitAudioContext;
     if (!AudioContextConstructor) {
       throw new Error("이 브라우저는 Web Audio를 지원하지 않습니다.");
     }
 
-    audioContext = audioContext || new AudioContextConstructor();
-    await audioContext.resume();
-    const source = audioContext.createBufferSource();
+    const context = audioContext || new AudioContextConstructor();
+    audioContext = context;
+    await context.resume();
+    // resume()을 기다리는 동안 STOP / 다른 PLAY / 페이지 이탈이 있었다면 재생하지 않는다.
+    if (requestId !== playRequestId || context !== audioContext) return;
+    const source = context.createBufferSource();
     source.buffer = buffer;
-    source.connect(audioContext.destination);
+    source.connect(context.destination);
     source.onended = () => {
       if (activeSource === source) activeSource = null;
       source.disconnect();

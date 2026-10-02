@@ -1,5 +1,10 @@
 # AI Music Sample Lab — Claude Code Build Spec
 
+> **[SUPERSEDED — 구조 부분]** 이 문서는 최초 flat prototype 기준 명세다.
+> §4(폴더 구조), §18~19(sampler.js / history.js 중심 구조)는 더 이상 유효하지 않다.
+> 현재 구조와 규칙은 `CLAUDE.md`, `docs/ARCHITECTURE.md`를 따른다.
+> 기능/디자인/과제 조건 요구사항은 `docs/REQUIREMENTS.md`에 정리되어 있다.
+
 ## 0. 작업 지시
 
 아래 요구사항을 기준으로 새 프로젝트를 처음부터 구현한다.

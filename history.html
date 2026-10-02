@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample History</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">SAMPLE//LAB</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="sampler.html">SAMPLER</a>
+      <a class="active" href="history.html" aria-current="page">HISTORY</a>
+      <a href="about.html">ABOUT</a>
+    </nav>
+  </header>
+
+  <main class="history-main">
+    <section class="page-title-block">
+      <div class="eyebrow">LOCAL STORAGE</div>
+      <h1>SAMPLE <span>HISTORY</span></h1>
+      <p>생성한 샘플의 조건과 즐겨찾기를 브라우저에 기록합니다.</p>
+    </section>
+
+    <section class="history-toolbar">
+      <div id="historyCount">0 SAMPLES</div>
+      <div class="toolbar-actions">
+        <select id="historyFilter">
+          <option value="all">ALL</option>
+          <option value="favorite">FAVORITES</option>
+          <option value="ukg">UK GARAGE</option>
+          <option value="rnb">R&B</option>
+          <option value="house">HOUSE</option>
+        </select>
+        <button id="clearHistoryBtn" class="button danger">CLEAR HISTORY</button>
+      </div>
+    </section>
+
+    <section id="historyGrid" class="history-grid"></section>
+  </main>
+
+  <footer>
+    SAMPLE//LAB — LOCAL HISTORY
+  </footer>
+
+  <script src="history.js"></script>
+</body>
+</html>

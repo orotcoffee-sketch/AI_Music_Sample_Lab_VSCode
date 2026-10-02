@@ -1,0 +1,255 @@
+/* components.css — 여러 페이지에서 쓰는 공통 UI: label, button, form, status, card, waveform */
+
+/* label */
+.eyebrow,
+.section-title {
+  color: var(--lime);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* button */
+.button:disabled,
+button:disabled {
+  cursor: wait;
+  opacity: .55;
+}
+
+.button {
+  border: 1px solid var(--line);
+  padding: 13px 18px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: var(--lime);
+  color: #080808;
+  border-color: var(--lime);
+  font-weight: 900;
+}
+
+.button.ghost {
+  background: transparent;
+}
+
+.button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.small-btn {
+  padding: 8px 10px;
+  background: #0a0a0a;
+  color: var(--text);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.small-btn:hover {
+  border-color: var(--lime);
+}
+
+.small-btn:active,
+.button:active {
+  transform: translateY(1px);
+}
+
+.favorite-btn.active {
+  color: var(--lime);
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* form */
+.control-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  gap: var(--space-sm);
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.control label {
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+.control select,
+.control input,
+.toolbar-actions select {
+  width: 100%;
+  background: var(--bg-input);
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: var(--space-sm);
+  outline: none;
+}
+
+.prompt-control {
+  grid-column: span 3;
+}
+
+.generate-button {
+  align-self: end;
+}
+
+/* status */
+.status-box {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 16px 20px;
+  min-width: 240px;
+}
+
+.status-box small {
+  display: block;
+  color: var(--muted);
+  margin-top: var(--space-xs);
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px var(--lime);
+  margin-right: var(--space-xs);
+}
+
+.generation-status {
+  margin: var(--space-md) 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--lime);
+  transition: width .25s ease;
+}
+
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  min-height: 220px;
+  border: 1px dashed var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--muted-dim);
+}
+
+/* card (sampler / history 공용) */
+.sample-card,
+.history-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: var(--space-md);
+}
+
+.sample-card.favorite,
+.history-card.favorite {
+  border-color: var(--lime);
+}
+
+.sample-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--space-sm);
+}
+
+.sample-id {
+  color: var(--lime);
+  font-weight: 900;
+}
+
+.sample-meta {
+  color: var(--muted);
+  font-size: .76rem;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.sample-actions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+/* waveform */
+.waveform {
+  width: 100%;
+  height: 84px;
+  background: var(--bg-wave);
+  border: 1px solid var(--line-soft);
+  margin: 16px 0;
+}
+
+@media (max-width: 820px) {
+  .control-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .prompt-control {
+    grid-column: 1 / -1;
+  }
+
+  .generate-button {
+    grid-column: 1 / -1;
+  }
+
+  .status-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-control,
+  .generate-button {
+    grid-column: auto;
+  }
+}

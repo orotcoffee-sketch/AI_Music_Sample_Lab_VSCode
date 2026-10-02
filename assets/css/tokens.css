@@ -1,0 +1,35 @@
+/* tokens.css — 색상, 폰트, 간격, 크기 같은 디자인 변수만 둔다. (선택자 규칙 금지) */
+
+:root {
+  /* color */
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --panel-2: #171717;
+  --line: #303030;
+  --line-soft: #242424;
+  --text: #f1f1e9;
+  --muted: #8e8e88;
+  --muted-dim: #666;
+  --lime: #d8ff3e;
+  --orange: #ff754a;
+  --cyan: #4ee6d2;
+  --danger: #ff5364;
+  --bg-input: #090909;
+  --bg-wave: #080808;
+  --track: #202020;
+
+  /* font */
+  --font-mono: "Courier New", monospace;
+  --font-sans: Arial, sans-serif;
+
+  /* spacing */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 30px;
+  --gutter: 5vw;
+
+  /* size */
+  --container-width: 1180px;
+  --header-height: 72px;
+}
